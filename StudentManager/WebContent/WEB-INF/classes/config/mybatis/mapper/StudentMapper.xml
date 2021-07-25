@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.it.project.dao.StudentDao">
+	<select id="countYearStudent" resultType="map">
+		select year,count(*)as num FROM student GROUP BY year
+	</select>
+	
+	<select id="countProvinceStudent" resultType="map">
+		select province,count(*)as num FROM student GROUP BY province
+	</select>
+
+  	<select id="findByUserName" parameterType="String" resultType="Student">
+  		select * from Student where username = #{username}
+  	</select>
+  	<select id="findByUserId" parameterType="Long" resultType="Student">
+  		select * from Student where id = #{id}
+  	</select>
+  	<select id="findList" parameterType="Map" resultType="Student">
+  		select * from Student where 1=1 
+  		<if test="username !=null">
+  			and username like #{username} 
+  		</if>
+  		<if test="clazzId !=null">
+  			and clazzId = #{clazzId} 
+  		</if>
+  		limit #{offset},#{pageSize}
+  	</select>
+  	<select id="findAll" resultType="Student">
+  		select * from Student
+  	</select>
+  	<select id="getTotal" parameterType="Map" resultType="Integer">
+  		select count(id) from Student where 1=1 
+  		<if test="username !=null">
+  			and username like #{username} 
+  		</if>
+  		<if test="gradeId !=null">
+  			and clazzId = #{clazzId} 
+  		</if>
+  	</select>
+  	<insert id="add" parameterType="Student">
+  		insert into Student(id,name,clazzId,username,password,sex,year,photo,endyear,province) values(null,#{name},#{clazzId},#{username},#{password},#{sex},#{year},#{photo},#{endyear},#{province})
+  	</insert>
+  	<update id="edit" parameterType="Clazz">
+  		update Student set name=#{name},clazzId = #{clazzId},username = #{username},password=#{password},sex=#{sex},year=#{year},photo=#{photo},endyear=#{endyear},province = #{province} where id = #{id}
+  	</update>
+  	<update id="editpassword" parameterType="Student">
+  		update Student set password=#{password} where id = #{id}
+  	</update>
+  	<delete id="delete" parameterType="String">
+  		delete from Student where id in (${value})
+  	</delete>
+</mapper>
