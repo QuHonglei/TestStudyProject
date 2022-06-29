@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/com.itheibai.springioc/com.itheibai.springioc.iml" filepath="$PROJECT_DIR$/com.itheibai.springioc/com.itheibai.springioc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com_itheibai_spring_aop/com_itheibai_spring_aop.iml" filepath="$PROJECT_DIR$/com_itheibai_spring_aop/com_itheibai_spring_aop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/com_itheibai_spring_ioc_anno/com_itheibai_spring_ioc_anno.iml" filepath="$PROJECT_DIR$/com_itheibai_spring_ioc_anno/com_itheibai_spring_ioc_anno.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/springtest.iml" filepath="$PROJECT_DIR$/.idea/springtest.iml" />
+    </modules>
+  </component>
+</project>
